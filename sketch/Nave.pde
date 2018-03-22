@@ -1,5 +1,5 @@
 class Nave implements Forma {
-
+    
   private final float escala;
   
   private PVector posicao, direcao;
@@ -16,6 +16,7 @@ class Nave implements Forma {
   void desenha() {
     pushMatrix();
     translate(posicao.x, posicao.y);
+    rotate(direcao.heading());
     scale(escala, escala);
     noStroke();
     corFoguete();// fill(255, 60, 123);
@@ -69,5 +70,11 @@ class Nave implements Forma {
   
   void atualizaPosicao() {
     posicao.add(PVector.mult(direcao, velocidade));     
+  }
+  
+  PVector gira(float sentido) {
+    if (sentido > 0) direcao.rotate(PI/8); 
+    else direcao.rotate(-PI/32);
+    return direcao;
   }
 }
