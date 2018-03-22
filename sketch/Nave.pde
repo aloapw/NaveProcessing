@@ -16,15 +16,15 @@ class Nave implements Forma {
     translate(x, y);
     scale(escala, escala);
     noStroke();
-    fill(255, 60, 123);
+    corFoguete();// fill(255, 60, 123);
     rect(-217, -71, 42, 142);
-    fill(128, 0, 255);
+    corCanhao(); // fill(128, 0, 255);
     rect(-135, -182, 60, 364);
-    fill(153, 217, 234);
+    corAsas(); // fill(153, 217, 234);
     triangle(-147, -197, -147, 197, 83, 0);
-    fill(181, 230, 29);
+    corCasco(); // fill(181, 230, 29);
     triangle(-191, -98, -191, 94, 219, 0);
-    fill(252, 193, 27);
+    corJanelinha(); // fill(252, 193, 27);
     ellipse(-105, 0, 110, 110);
     popMatrix();
   }
@@ -32,5 +32,25 @@ class Nave implements Forma {
   void move(float x, float y) {
     this.x = x;
     this.y = y;
+  }
+  
+  protected void corFoguete() {
+    fill(255, 60, 123);
+  }
+  
+  protected void corCanhao() {
+    fill(128, 0, 255);
+  }
+  
+  protected void corAsas() {
+    fill(153, 217, 234);
+  }
+  
+  protected void corCasco() {
+    fill(181, 230, 29);
+  }
+  
+  protected void corJanelinha() {
+    fill(252, 193, 27);
   }
 }

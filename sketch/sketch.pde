@@ -1,5 +1,5 @@
 Nave n1 = new Nave(400, 300, 100);
-Nave n2 = new Nave(100, 100, 100);
+Nave n2 = new Navezinha(100, 100, 120);
 
 void setup() {
   size(800, 600);
