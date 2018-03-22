@@ -9,6 +9,7 @@ class Nave implements Forma {
   }
   
   void desenha() {
+    triangle(x - 147, y - 197, x - 147, y + 197, x + 83, y); 
     triangle(x - 191, y - 98, x - 191, y + 94, x + 219, y);
   }
 }
