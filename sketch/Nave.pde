@@ -2,18 +2,20 @@ class Nave implements Forma {
 
   private final float escala;
   
-  private float x;
-  private float y;
+  private PVector posicao, direcao;
+  
+  private float velocidade;
   
   Nave(float x, float y, float tamanho) {
-    this.x = x;
-    this.y = y;
+    posicao = new PVector(x, y);
+    velocidade = 0;
+    direcao = new PVector(1.0, 0.0);
     this.escala = tamanho / (217 + 219);
   }
   
   void desenha() {
     pushMatrix();
-    translate(x, y);
+    translate(posicao.x, posicao.y);
     scale(escala, escala);
     noStroke();
     corFoguete();// fill(255, 60, 123);
@@ -30,8 +32,8 @@ class Nave implements Forma {
   }
   
   void move(float x, float y) {
-    this.x = x;
-    this.y = y;
+    posicao.x = x;
+    posicao.y = y;
   }
   
   protected void corFoguete() {
@@ -52,5 +54,20 @@ class Nave implements Forma {
   
   protected void corJanelinha() {
     fill(252, 193, 27);
+  }
+  
+  float acelera(float quantidade) {
+    velocidade += quantidade;
+    return velocidade;
+  }
+  
+  float desacelera(float quantidade) {
+    if (quantidade > velocidade) velocidade = 0;
+    else velocidade -= quantidade;
+    return velocidade;
+  }
+  
+  void atualizaPosicao() {
+    posicao.add(PVector.mult(direcao, velocidade));     
   }
 }
